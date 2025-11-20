@@ -8,7 +8,7 @@
 
 ### Real Image Examples and Score
 
-- **Image generation prompt**: "Show me a glass of red wine that is filled completely to the brim with wine."
+- **Image generation prompt**: "A glass of red wine that is filled completely to the brim with wine."
 
 ### Prompt List
 
