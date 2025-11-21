@@ -1,4 +1,4 @@
-# Milestone 1 
+# Milestone 1
 
 ## OOD Image Generation Tasks
 
@@ -123,6 +123,13 @@ The result feature vector of the wine bottle example is:
 Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0.17256315052509308, 0.18868671357631683, 0.32252246141433716], where we look at the last feature. We conclude (with the threshold of 0.25) that the image is out of training and is good for the target image of an ood task.
 
 ## VQAScore Working Example
+
+### Real Image Examples and Score
+
+- **Image generation prompt**: "A glass of red wine that is filled completely to the brim with wine."
+
 ### Prompt List
+
 ### Image Outputs
+
 ### VQAScore Comparisons
