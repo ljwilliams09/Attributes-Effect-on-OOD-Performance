@@ -2,11 +2,12 @@
 
 ## OOD Image Generation Tasks
 
-## Prompt Attribute 
+## Relevant Prompt Attribute
+
 - **Core Quantitative Attributes**
+
   - word_count: total words
-  - char_count: characters including or excluding spaces
-  - token_count: depends on tokenizer
+
 - **Semantic / Content-Based Attributes**
   - descriptor_words_count: adjectives + adverbs count
   - noun_count
@@ -15,30 +16,22 @@
   - emotion_words (anger, joy, fear, etc.)
   - sensory_words_count (color terms, shape terms, texture terms)
   - object_count (unique nouns)
-  - domain_labels (e.g., food, animals, vehicles)
 - **Syntactic Attributes**
   - sentence_count
   - avg_sentence_length
-  - complexity_score
   - question_present (boolean)
   - command_present ("show", "generate", "make", etc.)
 - **Stylistic Attributes**:
-  - ambiguity_score
   - hedging_words_count ("maybe", "sort of", "somewhat")
   - intensifier words_count ("very", "extremely")
-  - vividness_score (can be computed using concreteness lexicons)
 - **Image-Relevant Attributes**
   - num_visual_attributes (color words, size words)
-  - num_count_words ("three dogs", "two glasses")
   - num_actions ("jumping", "riding", "pouring")
-  - specificity_score (how detailed the described object is)
 - **LLM-Specific Attributes**
   - prompt_length_category (short / medium / long)
-  - entropy_of_vocabulary (measures lexical diversity)
-  - novel_word_ratio (rare words vs common words)
   - ambiguity_category (clear / partially ambiguous / fully ambiguous)
 
-# Prompt Writing Guide
+## Prompt Writing Guide
 
 (Reference: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide)
 
@@ -48,16 +41,18 @@
 - **Style**: Finally, add the style of image you want. Styles can be general (painting, photograph, sketches) or very specific (pastel painting, charcoal drawing, isometric 3D).
 
 An example of the prompt generation template is:
+
 ```
- <subject> 
-with <visual_composition> 
-made of <material> 
-in a state where <object_state> 
-set against <context> 
+ <subject>
+with <visual_composition>
+made of <material>
+in a state where <object_state>
+set against <context>
 in a <style> style.
 ```
 
 ## Membership Inference Pipeline
+
 Reference: Matyas Bohacek, Hany Farid; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops, 2025, pp. 321-330
 
 This section summarizes the full pipeline used to perform membership inference on image-generation models. The goal is to determine whether a specific image was part of the model’s training data by analyzing how closely the model reconstructs it at varying noise strengths.
@@ -66,7 +61,7 @@ This section summarizes the full pipeline used to perform membership inference o
 
 We begin by loading LPIPS, a perceptual distance metric that approximates human image similarity by comparing deep VGG features instead of raw pixels.
 
-``` python
+```python
 loss_fn = lpips.LPIPS(net='vgg').to("cuda")
 
 to_tensor = T.Compose([
@@ -85,7 +80,7 @@ def lpips_dist(img1, img2):
 
 We use the img2img pipeline since it allows injecting noise into the seed image and observing how well the model reconstructs it.
 
-``` python
+```python
 pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
     "runwayml/stable-diffusion-v1-5",
     torch_dtype=torch.float16              # lower VRAM, faster inference
@@ -98,7 +93,7 @@ pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
 This is the image we want to test for membership.
 ![Alt text](./wine.jpg)
 
-``` python
+```python
 seed = Image.open(seed_path).convert("RGB")
 caption = "a glass bottle of wine filled to the brim"
 seed
@@ -110,7 +105,7 @@ Membership inference relies on the idea that training images tend to be reconstr
 
 We define noise strengths and generate multiple samples per strength:
 
-``` python
+```python
 strengths = [0.02, 0.2, 0.4, 0.6, 0.8, 1.0]
 num_samples = 4
 
@@ -130,11 +125,12 @@ for s in strengths:
         all_outputs[s].append(img)
 
 ```
+
 - 5. Compute LPIPS Distances for Each Strength
 
 For each noise level, we compute perceptual similarity between the seed and generated images. We use the minimum LPIPS distance per strength, because the closest reconstruction is most indicative of membership inference.
 
-``` python
+```python
 feature_vector = []
 
 for s in strengths:
@@ -151,12 +147,11 @@ print("\nFeature vector:", feature_vector)
 The resulting vector:
 
 [LPIPS_strength_0.02,
- LPIPS_strength_0.2,
- LPIPS_strength_0.4,
- LPIPS_strength_0.6,
- LPIPS_strength_0.8,
- LPIPS_strength_1.0]
-
+LPIPS_strength_0.2,
+LPIPS_strength_0.4,
+LPIPS_strength_0.6,
+LPIPS_strength_0.8,
+LPIPS_strength_1.0]
 
 Forms the membership signature.
 
@@ -177,8 +172,6 @@ This feature vector can then be fed into either a logistic regression classifier
 The result feature vector of the wine bottle example is:
 Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0.17256315052509308, 0.18868671357631683, 0.32252246141433716], where we look at the last feature. We conclude (with the threshold of 0.25) that the image is out of training and is good for the target image of an ood task.
 
-
-
 ## VQAScore Working Example
 
 ### Real Image Examples and Score
@@ -186,6 +179,7 @@ Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0
 - **Image generation prompt**: "A glass of red wine that is filled completely to the brim with wine."
 
 ### Prompt List
+
 - "an empty deodorant stick"
 
 - "a book without a cover"
@@ -194,10 +188,96 @@ Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0
 
 - "a fork missing one or two prongs but still usable"
 
-
-### Image Outputs
+## Image Outputs
 
 ### VQAScore Comparisons
 
+- Wineglass Task: full vs. half glass scores on VQAScore
+  - All images from google images
+- Measurement prompt: a glass of red wine that is filled completely to the brim.
+  tensor([[9.9992e-01],
+[9.9999e-01],
+[9.9994e-01],
+[9.9929e-01],
+[9.9990e-01],
+[2.9802e-07],
+[2.9802e-07],
+[1.7881e-07],
+[1.7881e-07],
+[1.0431e-05]], device='cuda:0')
+
+[Full 1](images/wine/full_0001.png)
+
+- clip-flant5-xxl: 0.5833
+- llava-v1.5-13b: 0.5448
+- gpt-4o: 9.9992e-01
+
+[Full 2](images/wine/full_0002.png)
+
+- clip-flant5-xxl: 0.8114
+- llava-v1.5-13b: 0.7288
+- gpt-4o: 9.9999e-01
+
+[Full 3](images/wine/full_0003.png)
+
+- clip-flant5-xxl: 0.7980
+- llava-v1.5-13b: 0.6974
+- gpt-4o: 9.9994e-01
+
+[Full 4](images/wine/full_0004.png)
+
+- clip-flant5-xxl: 0.6258
+- llava-v1.5-13b: 0.5737
+- gpt-4o: 9.9929e-01
+
+[Full 5](images/wine/full_0005.png)
+
+- clip-flant5-xxl: 0.7446
+- llava-v1.5-13b: 0.5754
+- gpt-4o: 9.9990e-01
+
+#### **Full glass overall stats**
+
+- clip-flant5-xxl: e
+- llava-v1.5-13b:
+- gpt-4o:
+
+[Half 1](images/wine/half_0001.png)
+
+- clip-flant5-xxl: 0.6444
+- llava-v1.5-13b: 0.7126
+- gpt-4o: 2.9802e-07
+
+[Half 2](images/wine/half_0002.png)
+
+- clip-flant5-xxl: 0.5249
+- llava-v1.5-13b: 0.6381
+- gpt-4o: 2.9802e-07
+
+[Half 3](images/wine/half_0003.png)
+
+- clip-flant5-xxl: 0.6444
+- llava-v1.5-13b: 0.6501
+- gpt-4o: 1.7881e-07
+
+[Half 4](images/wine/half_0004.png)
+
+- clip-flant5-xxl: 0.5127
+- llava-v1.5-13b: 0.6270
+- gpt-4o: 1.7881e-07
+
+[Half 5](images/wine/half_0005.png)
+
+- clip-flant5-xxl: 0.6846
+- llava-v1.5-13b: 0.6603
+- gpt-4o: 1.0431e-05
+
+#### **Half glass overall stats**
+
+- clip-flant5-xxl:
+- llava-v1.5-13b:
+- gpt-4o:
+
 ## Prompt Enrichment Example
+
 - "Generate a glass of deep red wine filled completely to the brim, shown at an eye-level camera angle with product-shot framing and a shallow depth of field. The wine is held in a clear glass with visible surface tension at the brim. Place the glass on a matte black surface against a dark gradient background, rendered in a high-contrast photorealistic style."
