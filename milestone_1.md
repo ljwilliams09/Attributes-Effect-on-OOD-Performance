@@ -2,6 +2,61 @@
 
 ## OOD Image Generation Tasks
 
+## Prompt Attribute 
+- **Core Quantitative Attributes**
+  - word_count: total words
+  - char_count: characters including or excluding spaces
+  - token_count: depends on tokenizer
+- **Semantic / Content-Based Attributes**
+  - descriptor_words_count: adjectives + adverbs count
+  - noun_count
+  - verb_count
+  - proper_noun_count
+  - emotion_words (anger, joy, fear, etc.)
+  - sensory_words_count (color terms, shape terms, texture terms)
+  - object_count (unique nouns)
+  - domain_labels (e.g., food, animals, vehicles)
+- **Syntactic Attributes**
+  - sentence_count
+  - avg_sentence_length
+  - complexity_score
+  - question_present (boolean)
+  - command_present ("show", "generate", "make", etc.)
+- **Stylistic Attributes**:
+  - ambiguity_score
+  - hedging_words_count ("maybe", "sort of", "somewhat")
+  - intensifier words_count ("very", "extremely")
+  - vividness_score (can be computed using concreteness lexicons)
+- **Image-Relevant Attributes**
+  - num_visual_attributes (color words, size words)
+  - num_count_words ("three dogs", "two glasses")
+  - num_actions ("jumping", "riding", "pouring")
+  - specificity_score (how detailed the described object is)
+- **LLM-Specific Attributes**
+  - prompt_length_category (short / medium / long)
+  - entropy_of_vocabulary (measures lexical diversity)
+  - novel_word_ratio (rare words vs common words)
+  - ambiguity_category (clear / partially ambiguous / fully ambiguous)
+
+# Prompt Writing Guide
+
+(Reference: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide)
+
+- **Subject**: The first thing to think about with any prompt is the subject: the object, person, animal, or scenery you want an image of.
+- **Context and background**: Just as important is the background or context in which the subject will be placed. Try placing your subject in a variety of backgrounds. For example, a studio with a white background, outdoors, or indoor environments.
+
+- **Style**: Finally, add the style of image you want. Styles can be general (painting, photograph, sketches) or very specific (pastel painting, charcoal drawing, isometric 3D).
+
+An example of the prompt generation template is:
+```
+ <subject> 
+with <visual_composition> 
+made of <material> 
+in a state where <object_state> 
+set against <context> 
+in a <style> style.
+```
+
 ## Membership Inference Pipeline
 Reference: Matyas Bohacek, Hany Farid; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops, 2025, pp. 321-330
 
@@ -122,6 +177,8 @@ This feature vector can then be fed into either a logistic regression classifier
 The result feature vector of the wine bottle example is:
 Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0.17256315052509308, 0.18868671357631683, 0.32252246141433716], where we look at the last feature. We conclude (with the threshold of 0.25) that the image is out of training and is good for the target image of an ood task.
 
+
+
 ## VQAScore Working Example
 
 ### Real Image Examples and Score
@@ -129,7 +186,18 @@ Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0
 - **Image generation prompt**: "A glass of red wine that is filled completely to the brim with wine."
 
 ### Prompt List
+- "an empty deodorant stick"
+
+- "a book without a cover"
+
+- "a pencil sharpened all the way to the eraser clasp"
+
+- "a fork missing one or two prongs but still usable"
+
 
 ### Image Outputs
 
 ### VQAScore Comparisons
+
+## Prompt Enrichment Example
+- "Generate a glass of deep red wine filled completely to the brim, shown at an eye-level camera angle with product-shot framing and a shallow depth of field. The wine is held in a clear glass with visible surface tension at the brim. Place the glass on a matte black surface against a dark gradient background, rendered in a high-contrast photorealistic style."
