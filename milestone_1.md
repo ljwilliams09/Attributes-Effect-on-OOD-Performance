@@ -195,76 +195,88 @@ Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0
 - Wineglass Task: full vs. half glass scores on VQAScore
   - All images from google images
 - Measurement prompt: a glass of red wine that is filled completely to the brim.
-  ensor([[0.5448],
-        [0.7288],
-        [0.6974],
-        [0.5737],
-        [0.5754],
-        [0.7126],
-        [0.6381],
-        [0.6501],
-        [0.6270],
-        [0.6603]], device='cuda:0')
+  tensor([[9.9992e-01],
+[9.9999e-01],
+[9.9994e-01],
+[9.9929e-01],
+[9.9990e-01],
+[2.9802e-07],
+[2.9802e-07],
+[1.7881e-07],
+[1.7881e-07],
+[1.0431e-05]], device='cuda:0')
 
 [Full 1](images/wine/full_0001.png)
 
 - clip-flant5-xxl: 0.5833
 - llava-v1.5-13b: 0.5448
+- gpt-4o: 9.9992e-01
 
 [Full 2](images/wine/full_0002.png)
 
 - clip-flant5-xxl: 0.8114
 - llava-v1.5-13b: 0.7288
+- gpt-4o: 9.9999e-01
 
 [Full 3](images/wine/full_0003.png)
 
 - clip-flant5-xxl: 0.7980
 - llava-v1.5-13b: 0.6974
+- gpt-4o: 9.9994e-01
 
 [Full 4](images/wine/full_0004.png)
 
 - clip-flant5-xxl: 0.6258
 - llava-v1.5-13b: 0.5737
+- gpt-4o: 9.9929e-01
 
 [Full 5](images/wine/full_0005.png)
 
 - clip-flant5-xxl: 0.7446
 - llava-v1.5-13b: 0.5754
+- gpt-4o: 9.9990e-01
 
 #### **Full glass overall stats**
 
 - clip-flant5-xxl: e
 - llava-v1.5-13b:
+- gpt-4o:
 
 [Half 1](images/wine/half_0001.png)
 
 - clip-flant5-xxl: 0.6444
 - llava-v1.5-13b: 0.7126
+- gpt-4o: 2.9802e-07
 
 [Half 2](images/wine/half_0002.png)
 
 - clip-flant5-xxl: 0.5249
 - llava-v1.5-13b: 0.6381
+- gpt-4o: 2.9802e-07
 
 [Half 3](images/wine/half_0003.png)
 
 - clip-flant5-xxl: 0.6444
 - llava-v1.5-13b: 0.6501
+- gpt-4o: 1.7881e-07
 
 [Half 4](images/wine/half_0004.png)
 
 - clip-flant5-xxl: 0.5127
 - llava-v1.5-13b: 0.6270
+- gpt-4o: 1.7881e-07
 
 [Half 5](images/wine/half_0005.png)
 
 - clip-flant5-xxl: 0.6846
 - llava-v1.5-13b: 0.6603
+- gpt-4o: 1.0431e-05
 
 #### **Half glass overall stats**
 
 - clip-flant5-xxl:
 - llava-v1.5-13b:
+- gpt-4o:
 
 ## Prompt Enrichment Example
 
