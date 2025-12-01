@@ -153,19 +153,9 @@ LPIPS_strength_0.6,
 LPIPS_strength_0.8,
 LPIPS_strength_1.0]
 
-Forms the membership signature.
-
-    - If the image was in training:
-
-        Low strength → very small LPIPS (model reconstructs it well).
-
-        Higher strength → values increase smoothly.
-
-    - If the image was not in training:
-
-        LPIPS stays relatively high.
-
-        No dramatic drop at low strength.
+Forms the membership signature. - If the image was in training: - Low strength → very small LPIPS (model reconstructs it well). - Higher strength → values increase smoothly. - If the image was not in training:
+LPIPS stays relatively high.
+No dramatic drop at low strength.
 
 This feature vector can then be fed into either a logistic regression classifier or a threshold-based rule for membership inference. We used a threshold-based rule that if the LIPIS is smaller than 0.25 when strength is 1, then the image is likely to be in-training. If not, then it is likely out-of-training.
 
@@ -188,96 +178,120 @@ Feature vector: [0.03773997351527214, 0.0715467557311058, 0.19348135590553284, 0
 
 - "a fork missing one or two prongs but still usable"
 
-## Image Outputs
-
 ### VQAScore Comparisons
 
 - Wineglass Task: full vs. half glass scores on VQAScore
   - All images from google images
 - Measurement prompt: a glass of red wine that is filled completely to the brim.
-  tensor([[9.9992e-01],
-[9.9999e-01],
-[9.9994e-01],
-[9.9929e-01],
-[9.9990e-01],
-[2.9802e-07],
-[2.9802e-07],
-[1.7881e-07],
-[1.7881e-07],
-[1.0431e-05]], device='cuda:0')
+- Outcomes: using images from google as ground truth indicators, we test below the ability of the VQAscore to detect the difference in images and proximity to the prompt.
+  - Below we have samples of images relating to the OOD task, and their rating from different models in relation to the measurement prompt above.
+  - While open weight models struggle, the gpt-4 line of models are able to consistently decide for each of the images. We can utilize the openai api to retrieve the VQAScore.
 
 [Full 1](images/wine/full_0001.png)
 
 - clip-flant5-xxl: 0.5833
 - llava-v1.5-13b: 0.5448
 - gpt-4o: 9.9992e-01
+- gpt-4-turbo: 6.4689e-02
+- gpt-4.1: 1.0000
 
 [Full 2](images/wine/full_0002.png)
 
 - clip-flant5-xxl: 0.8114
 - llava-v1.5-13b: 0.7288
 - gpt-4o: 9.9999e-01
+- gpt-4-turbo: 9.9373e-01
+- gpt-4.1: 1.0000
 
 [Full 3](images/wine/full_0003.png)
 
 - clip-flant5-xxl: 0.7980
 - llava-v1.5-13b: 0.6974
 - gpt-4o: 9.9994e-01
+- gpt-4-turbo: 9.4907e-01
+- gpt-4.1: 1.0000
 
 [Full 4](images/wine/full_0004.png)
 
 - clip-flant5-xxl: 0.6258
 - llava-v1.5-13b: 0.5737
 - gpt-4o: 9.9929e-01
+- gpt-4-turbo: 5.1574e-02
+- gpt-4.1: 1.0000
 
 [Full 5](images/wine/full_0005.png)
 
 - clip-flant5-xxl: 0.7446
 - llava-v1.5-13b: 0.5754
 - gpt-4o: 9.9990e-01
+- gpt-4-turbo: 9.4091e-01
+- gpt-4.1: 1.0000
 
-#### **Full glass overall stats**
+#### **Full glass Averages**
 
-- clip-flant5-xxl: e
-- llava-v1.5-13b:
-- gpt-4o:
+- clip-flant5-xxl: 0.71262
+- llava-v1.5-13b: 0.62402
+- gpt-4o: 0.999808
+- gpt-4-turbo: 0.5999946
+  - lots of outliers
+- gpt-4.1: 1.0000
 
 [Half 1](images/wine/half_0001.png)
 
 - clip-flant5-xxl: 0.6444
 - llava-v1.5-13b: 0.7126
 - gpt-4o: 2.9802e-07
+- gpt-4-turbo: 1.0352e-03
+- gpt-4.1: 0.0000
 
 [Half 2](images/wine/half_0002.png)
 
 - clip-flant5-xxl: 0.5249
 - llava-v1.5-13b: 0.6381
 - gpt-4o: 2.9802e-07
+- gpt-4-turbo: 2.1398e-05
+- gpt-4.1: 0.0000
 
 [Half 3](images/wine/half_0003.png)
 
 - clip-flant5-xxl: 0.6444
 - llava-v1.5-13b: 0.6501
 - gpt-4o: 1.7881e-07
+- gpt-4-turbo: 7.5281e-05
+- gpt-4.1: 0.0000
 
 [Half 4](images/wine/half_0004.png)
 
 - clip-flant5-xxl: 0.5127
 - llava-v1.5-13b: 0.6270
 - gpt-4o: 1.7881e-07
+- gpt-4-turbo: 1.2577e-5
+- gpt-4.1: 0.0000
 
 [Half 5](images/wine/half_0005.png)
 
 - clip-flant5-xxl: 0.6846
 - llava-v1.5-13b: 0.6603
 - gpt-4o: 1.0431e-05
+- gpt-4-turbo: 4.2951e-04
+- gpt-4.1: 0.0000
 
-#### **Half glass overall stats**
+#### **Half glass overall averages**
 
-- clip-flant5-xxl:
-- llava-v1.5-13b:
-- gpt-4o:
+- clip-flant5-xxl: 0.6022
+- llava-v1.5-13b: 0.65762
+- gpt-4o: ~0.0000
+- gpt-4-turbo: ~0.0000
+- gpt-4.1: 0.0000
 
 ## Prompt Enrichment Example
 
 - "Generate a glass of deep red wine filled completely to the brim, shown at an eye-level camera angle with product-shot framing and a shallow depth of field. The wine is held in a clear glass with visible surface tension at the brim. Place the glass on a matte black surface against a dark gradient background, rendered in a high-contrast photorealistic style."
+
+## Milestone 2 Next Steps
+
+- From milestone 1: VQAScore and Membership inference working
+- Next steps:
+  - Stratify prompts for 5 tasks with varying amounts of details in the variables above (maybe cut some of these down).
+  - Have 3 image generation models generate an image with the different prompts
+  - Evaluate each prompts ability to elicit OOD generalization from the model with VQAScore based on the image output of the model
