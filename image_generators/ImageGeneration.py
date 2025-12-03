@@ -6,9 +6,9 @@ import base64
 
 load_dotenv()
 
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("PERSONAL_API_KEY"))
 
-csv_file_path = './../Tasks/stratification/prompt_stratification.csv'
+csv_file_path = './../Tasks/stratification/test.csv'
 output_directory = 'generated_images'
 
 os.makedirs(output_directory, exist_ok=True)
