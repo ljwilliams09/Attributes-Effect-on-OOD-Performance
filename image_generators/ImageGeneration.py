@@ -8,7 +8,7 @@ load_dotenv()
 
 client = OpenAI()
 
-csv_file_path = './Tasks/stratification/prompt_stratification.csv'
+csv_file_path = './../Tasks/stratification/prompt_stratification.csv'
 output_directory = 'generated_images'
 
 os.makedirs(output_directory, exist_ok=True)
