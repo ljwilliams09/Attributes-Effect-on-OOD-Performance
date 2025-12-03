@@ -32,7 +32,8 @@ def prompt_generation(prompt, guidelines, system_prompt):
                 "role":"user",
                 "content":prompt
             }
-        ]
+        ],
+        temperature=0
     )
 
     return response.output_text

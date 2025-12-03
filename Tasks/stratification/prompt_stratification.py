@@ -10,13 +10,13 @@ def main():
     "num_visual_attributes: (color words, size words)" \
     "sentence_count: number of sentences" \
     "style: photorealistic" \
-    "ambiguity: how ambiguous is the prompt? is it direct towards the object or does it ambiguously describe while not being deirect?"
+    "ambiguity: how ambiguous is the prompt? clear would mean that it is directly indicated that it is a wine glass, ambiguous would mean that the object is indirectly referenced."
 
     id = 0
-    descriptor_words = 4
+    descriptor_words = 3
     sentence_count = 2
     spatial_constraints = ["none", "top", "bottom", "side"] #["none", "top", "bottom", "side", "close_up", "far"]
-    visual_attributes = 4
+    visual_attributes = 3
     ambiguity_score = ["clear", "partially ambiguous", "fully ambiguous"]
 
 
@@ -24,7 +24,7 @@ def main():
     combinations = []
     headers = ["prompt_id", "word_count", "descriptor_words", "sentence_count", "num_visual_attributes", "spatial_constraints", "ambiguity", "prompt"]
     for des_words in range(1,descriptor_words + 1):
-        for sen_con in range(1, sentence_count):
+        for sen_con in range(1, sentence_count + 1):
             for visual in range(1, visual_attributes + 1):
                 for constraint in spatial_constraints:
                         for amb_score in ambiguity_score:
