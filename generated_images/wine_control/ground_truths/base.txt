@@ -1,0 +1,13 @@
+a glass of red wine
+
+red_1.png: 1.0
+red_2.png: 0.9999998211860657
+red_3.png: 0.9999998211860657
+red_4.png: 0.9999998211860657
+red_5.png: 1.0
+
+white_1.png: 1.7881393432617188e-07
+white_2.png: 0.0
+white_3.png: 0.0
+white_4.png: 0.0
+white_5.png: 1.7881393432617188e-07
