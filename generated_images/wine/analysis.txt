@@ -1,0 +1,12 @@
+Coefficients:
+                             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                   0.46383    0.05081   9.129  < 2e-16 ***
+word_count                    0.08648    0.04117   2.100  0.03690 *  
+descriptor_words             -0.04787    0.02053  -2.332  0.02067 *  
+sentence_count               -0.05252    0.03834  -1.370  0.17226    
+num_visual_attributes        -0.07842    0.02468  -3.177  0.00172 ** 
+spatial_constraintsnone       0.33671    0.05816   5.789 2.61e-08 ***
+spatial_constraintsside      -0.02427    0.05995  -0.405  0.68607    
+spatial_constraintstop        0.45401    0.05812   7.811 2.84e-13 ***
+ambiguityfully ambiguous     -0.02985    0.05010  -0.596  0.55197    
+ambiguitypartially ambiguous -0.04191    0.05017  -0.835  0.40441   
