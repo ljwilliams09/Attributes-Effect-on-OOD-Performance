@@ -1,1 +1,6 @@
-full_wine_1.png
+full_wine_1.png: 0.459681958
+full_wine_2.png: 0.5530270934
+full_wine_3.png: 0.5174530149
+full_wine_4.png: 0.4745372534
+full_wine_5.png: 0.5870586634
+Average Score: 0.5183515966

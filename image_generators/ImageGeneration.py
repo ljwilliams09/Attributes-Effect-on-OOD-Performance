@@ -8,7 +8,7 @@ load_dotenv()
 
 client = OpenAI()
 
-csv_file_path = './deodorant.csv'
+csv_file_path = './test.csv'
 output_directory = 'generated_images'
 
 os.makedirs(output_directory, exist_ok=True)
@@ -33,7 +33,7 @@ with open(csv_file_path, mode='r', encoding='utf-8') as file:
             image_base64 = response.data[0].b64_json
             image_bytes = base64.b64decode(image_base64)
 
-            image_path = os.path.join(output_directory, f"deodorant_{i}.png")
+            image_path = os.path.join(output_directory, f"deodorant_{i + 120}.png")
             with open(image_path, "wb") as f:
                 f.write(image_bytes)
 
