@@ -1,0 +1,13 @@
+an empty stick of deodorant
+
+deo_full_1.png: 0.5621663928031921
+deo_full_2.png: 0.5621421337127686
+deo_full_3.png: 1.1324882507324219e-06
+deo_full_4.png: 1.3709068298339844e-06
+deo_full_5.png: 0.8680708408355713
+
+deo_empty_1.png: 0.9999857544898987
+deo_empty_2.png: 0.9996636509895325
+deo_empty_3.png: 0.9999895691871643
+deo_empty_4.png: 0.999564528465271
+deo_empty_5.png: 0.9999896883964539
