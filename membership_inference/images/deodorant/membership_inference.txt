@@ -1,5 +1,6 @@
-empty_deodorant_1.jpg: 
-empty_deodorant_2.jpg: 
-empty_deodorant_3.jpg: 
-empty_deodorant_4.jpg: 
-empty_deodorant_5.jpg: 
+empty_deodorant_1.jpg: 0.2873827815
+empty_deodorant_2.jpg: 0.2291412801
+empty_deodorant_3.jpg: 0.3464384377
+empty_deodorant_4.jpg: 0.2692112029
+empty_deodorant_5.jpg: 0.2836053371
+Average Score: 0.2831558079
