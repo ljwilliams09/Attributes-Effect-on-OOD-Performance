@@ -8,7 +8,7 @@ library(MASS)
 library(corrplot)
 
 # ---- Read dataset ----
-df <- read.csv("./stratification/wine_prompts.csv", stringsAsFactors = FALSE)
+df <- read.csv("./stratification/wine_control_prompts.csv", stringsAsFactors = FALSE)
 
 
 # ---- Clean + preprocess ----
