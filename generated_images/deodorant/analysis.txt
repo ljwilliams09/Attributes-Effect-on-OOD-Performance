@@ -1,0 +1,12 @@
+Coefficients:
+                             Value      Std. Error t value   
+(Intercept)                      0.9999     0.0000 82374.9835
+word_count                       0.0000     0.0000     0.1564
+descriptor_words                 0.0000     0.0000     0.9291
+sentence_count                   0.0000     0.0000    -0.7059
+num_visual_attributes            0.0000     0.0000     1.2969
+spatial_constraintsnone          0.0000     0.0000     2.9508
+spatial_constraintsside          0.0000     0.0000     1.9512
+spatial_constraintstop           0.0000     0.0000     0.2507
+ambiguityfully ambiguous         0.0000     0.0000     0.2503
+ambiguitypartially ambiguous     0.0000     0.0000    -0.2849
