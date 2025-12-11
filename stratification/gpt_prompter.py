@@ -27,7 +27,7 @@ def prompt_generation(prompt, guidelines, system_prompt):
                 "content":prompt
             }
         ],
-        temperature=0.2
+        temperature=0
     )
 
     return response.output_text
