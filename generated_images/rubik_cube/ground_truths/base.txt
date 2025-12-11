@@ -1,0 +1,13 @@
+a rubik cube with a missing corner
+
+normal_cube_1.png:
+normal_cube_2.png:
+normal_cube_3.png:
+normal_cube_4.png:
+normal_cube_5.png:
+
+missing_1.png
+missing_2.png
+missing_3.png
+missing_4.png
+missing_5.png
