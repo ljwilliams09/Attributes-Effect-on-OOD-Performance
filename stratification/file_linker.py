@@ -1,6 +1,8 @@
 import pandas as pd
 count = 0
-df = pd.read_csv("./prompts/deodorant_prompts.csv")
+
+input_file = "./prompts/deodorant_prompts.csv"
+df = pd.read_csv(input_file)
 
 def generate_filename(row):
     global count
@@ -11,4 +13,4 @@ def generate_filename(row):
 df['filename'] = df.apply(generate_filename, axis=1)
 
 # Write the updated DataFrame back to the original CSV
-df.to_csv("./prompts/deodorant_prompts.csv", index=False)
+df.to_csv(input_file, index=False)
