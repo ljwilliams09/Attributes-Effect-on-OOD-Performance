@@ -2,8 +2,8 @@ import csv
 import gpt_prompter
 
 def main():
-    base_prompt = "a glass of red wine that is filled completely to the brim"
-    system_prompt = "You are a research assistant that is creating prompts for us to test on out of-distribution image generation. You will be given a list of prompt attributes, and a target object for the image generator to create. Return one image prompt that follows the attribute guidelines to elicit the photo from the image generator. Return only the final image prompt with no explanation or extra text. Your main focus should be getting the glass of wine to be full to the brim above any other attribute of the wine." \
+    base_prompt = "a rubik cube with just the corner missing, not an edge"
+    system_prompt = "You are a research assistant that is creating prompts for us to test on out of-distribution image generation. You will be given a list of prompt attributes, and a target object for the image generator to create. Return one image prompt that follows the attribute guidelines to elicit the photo from the image generator. Return only the final image prompt with no explanation or extra text. Your main focus should getting a corner to be missing on the rubik cube, not anything else." \
     "Here are descriptions of what each variable means: " \
     "descriptor_words_count: adjectives + adverbs count" \
     "num_visual_attributes: color words + size words" \
@@ -14,13 +14,13 @@ def main():
     visual_attributes = 3
     combinations = []
     headers = ["prompt_id", "word_count", "descriptor_words", "num_visual_attributes", "prompt"]
-    for i in range(20):
+    for i in range(15):
         for des_words in range(1,descriptor_words + 1):
             for visual in range(1, visual_attributes + 1):
                 id += 1
                 combinations.append([id, None, des_words, visual])
     
-    with open("./wine_descriptive_prompts.csv", 'w') as f:
+    with open("./rubik_prompts.csv", 'w') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         for row in combinations:
