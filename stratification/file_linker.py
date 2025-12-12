@@ -1,12 +1,12 @@
 import pandas as pd
 count = 0
 
-input_file = "./prompts/deodorant_prompts.csv"
+input_file = "./prompts/wine_descriptive_prompts.csv"
 df = pd.read_csv(input_file)
 
 def generate_filename(row):
     global count
-    filename = f"deodorant_{count}.png"
+    filename = f"wine_descriptive_{count}.png"
     count += 1
     return filename
 

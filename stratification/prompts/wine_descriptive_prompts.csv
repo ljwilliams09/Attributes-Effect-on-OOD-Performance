@@ -122,3 +122,120 @@ prompt_id,word_count,descriptor_words,num_visual_attributes,prompt,filename
 121,22,1,1,"A photorealistic close-up of a full-to-the-brim glass of red wine on a plain table, studio lighting, high detail, shallow depth of field",wine_descriptive_120.png
 122,19,1,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic lighting, clear reflections on the smooth glass",wine_descriptive_121.png
 123,30,1,3,"A photorealistic close-up of a single, perfectly full glass of red wine filled exactly to the brim, with deep ruby liquid, clear transparent glass, and a dark wooden table background",wine_descriptive_122.png
+124,13,2,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic",wine_descriptive_123.png
+125,28,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, with rich crimson liquid and a clear, reflective glass, softly lit in a dim restaurant setting",wine_descriptive_124.png
+126,25,2,3,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, deep ruby liquid with a glossy surface, clear thin-stemmed glass, soft warm lighting",wine_descriptive_125.png
+127,23,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, tiny reflections on the smooth glass, soft blurred background",wine_descriptive_126.png
+128,32,3,2,"A full-to-the-brim glass of red wine on a small wooden table in a dimly lit restaurant, captured in a highly detailed photorealistic style, with rich crimson liquid and a clear, reflective glass",wine_descriptive_127.png
+129,33,3,3,"A full-to-the-brim glass of red wine on a small wooden table, intensely detailed and sharply focused, in a photorealistic style, with deep ruby liquid, clear transparent glass, and a warm golden background lighting",wine_descriptive_128.png
+130,18,4,1,"A single full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic, high detail, minimal background",wine_descriptive_129.png
+131,32,4,2,"A full-to-the-brim glass of red wine on a small wooden table, sharply focused and subtly lit, photorealistic style, with rich crimson liquid and a clear, reflective glass against a softly blurred background",wine_descriptive_130.png
+132,28,4,3,"A full-to-the-brim glass of deep red wine on a small rustic wooden table, in a softly lit cozy restaurant interior, captured in a sharp, highly detailed photorealistic style",wine_descriptive_131.png
+133,20,1,1,"A photorealistic close-up of a single glass of red wine filled completely to the brim, against a simple neutral background",wine_descriptive_132.png
+134,35,1,2,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small white table, with the deep red liquid touching the rim and a soft warm light illuminating the clear glass and dark background",wine_descriptive_133.png
+135,37,1,3,"A photorealistic close-up of a single, elegant glass of red wine filled completely to the brim, with deep ruby liquid touching the rim, tiny reflections on the clear glass, and a soft, neutral background out of focus",wine_descriptive_134.png
+136,22,2,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, on a simple table with soft natural lighting",wine_descriptive_135.png
+137,16,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, soft lighting, high detail",wine_descriptive_136.png
+138,33,2,3,"A full-to-the-brim glass of red wine on a small wooden table, vivid, sharp, photorealistic, with deep crimson liquid, clear transparent glass, and a dark brown tabletop, softly lit in a dim restaurant setting",wine_descriptive_137.png
+139,23,3,1,"A photorealistic close-up of a single elegant wine glass filled completely to the brim with deep red wine, on a simple neutral background",wine_descriptive_138.png
+140,19,3,2,"A full-to-the-brim glass of deep red wine on a small wooden table, softly lit in a cozy room, photorealistic",wine_descriptive_139.png
+141,32,3,3,"A full-to-the-brim glass of red wine on a small wooden table, in a cozy dimly lit room, photorealistic, rich deep-red color, clear transparent glass, medium-sized wine glass, sharp focus, natural soft shadows",wine_descriptive_140.png
+142,18,4,1,"A full-to-the-brim glass of red wine on a simple table, softly lit in a quiet room, photorealistic style",wine_descriptive_141.png
+143,32,4,2,"A full-to-the-brim glass of red wine on a small wooden table, captured in a sharp, dramatic, photorealistic style, with rich crimson liquid and a clear, reflective glass against a softly blurred background",wine_descriptive_142.png
+144,35,4,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, captured in a highly detailed photorealistic style, with rich crimson liquid, clear sparkling glass, and warm soft lighting illuminating subtle reflections and shadows.",wine_descriptive_143.png
+145,14,1,1,A photorealistic close-up of a full-to-the-brim glass of red wine on a table indoors,wine_descriptive_144.png
+146,30,1,2,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small wooden table, with rich crimson liquid touching the rim and soft natural lighting highlighting the clear glass",wine_descriptive_145.png
+147,37,1,3,"A photorealistic close-up of a single, full-to-the-brim glass of red wine on a small white table, the deep crimson liquid touching the rim, with a clear glass stem and a soft golden sunset glow in the background",wine_descriptive_146.png
+148,13,2,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic",wine_descriptive_147.png
+149,19,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, soft natural lighting, shallow depth of field",wine_descriptive_148.png
+150,28,2,3,"A full-to-the-brim glass of red wine on a small wooden table, vivid deep-red liquid with a glossy surface, clear transparent glass, medium-sized bowl, photorealistic lighting and sharp focus",wine_descriptive_149.png
+151,21,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, on a simple table with soft lighting",wine_descriptive_150.png
+152,18,3,2,"A full-to-the-brim glass of red wine on a small wooden table, softly lit and sharply focused, photorealistic style",wine_descriptive_151.png
+153,28,3,3,"A full-to-the-brim glass of red wine on a small wooden table, in a dimly lit cozy bar, photorealistic, deep ruby red liquid, clear smooth glass, medium-sized round bowl",wine_descriptive_152.png
+154,19,4,1,"A single full-to-the-brim glass of red wine on a simple table, softly lit in a quiet, elegant, photorealistic scene",wine_descriptive_153.png
+155,29,4,2,"A full-to-the-brim glass of deep red wine on a small wooden table, captured in a sharp, photorealistic style with soft natural lighting and subtle reflections on the clear glass",wine_descriptive_154.png
+156,24,4,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, in a softly lit cozy room, photorealistic, high detail, rich color tones",wine_descriptive_155.png
+157,14,1,1,A photorealistic close-up of a full-to-the-brim glass of red wine on a table indoors,wine_descriptive_156.png
+158,34,1,2,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small table, with deep red liquid touching the rim and a clear transparent glass catching soft light, shallow depth of field background.",wine_descriptive_157.png
+159,38,1,3,"A photorealistic close-up of a single, full-to-the-brim glass of red wine on a small white table, the deep crimson liquid touching the rim, with a clear glass stem and a soft golden sunset glow reflecting off the surface.",wine_descriptive_158.png
+160,13,2,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic",wine_descriptive_159.png
+161,20,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, close-up shot with sharp focus and soft lighting",wine_descriptive_160.png
+162,32,2,3,"A full-to-the-brim glass of red wine on a small white marble table, the deep crimson liquid perfectly level with the rim, in a bright modern kitchen with soft natural lighting, photorealistic style",wine_descriptive_161.png
+163,22,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, on a simple table in soft natural light",wine_descriptive_162.png
+164,33,3,2,"A full-to-the-brim glass of deep red wine on a small wooden table in a dimly lit room, with soft natural light highlighting the smooth glass and rich color of the wine, photorealistic style",wine_descriptive_163.png
+165,26,3,3,"A full-to-the-brim glass of red wine on a small wooden table, in a dim cozy bar, photorealistic, deep ruby color, clear reflective glass, warm amber lighting",wine_descriptive_164.png
+166,16,4,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, highly detailed, photorealistic style",wine_descriptive_165.png
+167,32,4,2,"A full-to-the-brim glass of red wine on a small wooden table, sharply focused and subtly lit, photorealistic style, with rich crimson liquid and a clear, reflective glass against a softly blurred background",wine_descriptive_166.png
+168,36,4,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, captured in a highly detailed photorealistic style, with rich deep crimson liquid, clear transparent glass, and warm soft lighting highlighting subtle reflections and shadows",wine_descriptive_167.png
+169,17,1,1,"A full-to-the-brim glass of red wine on a plain table, photorealistic, studio lighting, high resolution, sharp focus",wine_descriptive_168.png
+170,32,1,2,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small white table, the deep red liquid touching the rim and reflecting soft warm light in a dimly lit room",wine_descriptive_169.png
+171,35,1,3,"A photorealistic close-up of a single, full-to-the-brim glass of red wine on a small white table, with deep red liquid touching the rim, clear transparent glass catching soft warm light, and a dark blurred background.",wine_descriptive_170.png
+172,13,2,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic",wine_descriptive_171.png
+173,20,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, close-up shot with sharp focus and soft lighting",wine_descriptive_172.png
+174,31,2,3,"A full-to-the-brim glass of red wine on a small wooden table, the deep crimson liquid perfectly level with the rim and catching soft warm light, photorealistic, high resolution, subtle background blur",wine_descriptive_173.png
+175,21,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, on a simple table with soft lighting",wine_descriptive_174.png
+176,34,3,2,"A full-to-the-brim glass of red wine on a small wooden table in a dimly lit restaurant, captured in a highly detailed, photorealistic style, with rich crimson liquid and clear reflective glass prominently in focus.",wine_descriptive_175.png
+177,27,3,3,"A full-to-the-brim glass of red wine on a small wooden table, in a dimly lit cozy bar, photorealistic, deep crimson wine, clear smooth glass, warm soft lighting",wine_descriptive_176.png
+178,18,4,1,"A full-to-the-brim glass of red wine on a simple table, softly lit in a quiet room, photorealistic, ultra-detailed",wine_descriptive_177.png
+179,28,4,2,"A full-to-the-brim glass of red wine on a small wooden table, captured in a highly detailed, softly lit, photorealistic style, with rich crimson liquid and clear reflective glass",wine_descriptive_178.png
+180,29,4,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, intensely detailed and sharply focused, in a softly lit cozy room with warm ambient lighting, photorealistic style",wine_descriptive_179.png
+181,22,1,1,"A photorealistic close-up of a full-to-the-brim glass of red wine on a plain table, studio lighting, high detail, shallow depth of field",wine_descriptive_180.png
+182,21,1,2,"A full-to-the-brim glass of deep red wine on a small table, with a single bright highlight on the liquid surface, photorealistic",wine_descriptive_181.png
+183,26,1,3,"A photorealistic close-up of a single, completely full-to-the-brim glass of red wine on a small table, with deep red liquid, clear glass, and a dark background",wine_descriptive_182.png
+184,21,2,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, on a simple table with soft lighting",wine_descriptive_183.png
+185,29,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, close-up shot with soft lighting, deep red liquid and clear glass in sharp focus, blurred warm-toned background",wine_descriptive_184.png
+186,34,2,3,"A full-to-the-brim glass of red wine on a small wooden table, vivid, sharp, photorealistic style, with deep ruby liquid, clear transparent glass, and a dark brown tabletop, softly lit in a dim interior setting",wine_descriptive_185.png
+187,21,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, on a simple table in soft lighting",wine_descriptive_186.png
+188,26,3,2,"Photorealistic close-up of a small crystal wine glass filled completely to the brim with deep red wine, on a simple wooden table under soft warm lighting",wine_descriptive_187.png
+189,30,3,3,"A full-to-the-brim glass of deep red wine on a small wooden table, in a cozy dimly lit room, photorealistic style, with rich color, medium-sized glass, and a clear reflective surface",wine_descriptive_188.png
+190,17,4,1,"A full-to-the-brim glass of red wine on a simple table, sharply detailed and softly lit, photorealistic style",wine_descriptive_189.png
+191,24,4,2,"A full-to-the-brim glass of red wine on a small wooden table, sharply focused and highly detailed, in a softly lit cozy room, photorealistic style",wine_descriptive_190.png
+192,24,4,3,"A full-to-the-brim glass of deep red wine on a small rustic wooden table, in a softly lit cozy room, photorealistic, high detail, natural shadows",wine_descriptive_191.png
+193,23,1,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim on a plain table, neutral background, soft natural lighting",wine_descriptive_192.png
+194,36,1,2,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small white table, with deep red liquid touching the rim and a soft warm light illuminating the clear glass, shallow depth of field background.",wine_descriptive_193.png
+195,30,1,3,"A photorealistic close-up of a single, completely full glass of red wine filled exactly to the brim, with deep ruby liquid, clear reflective glass, and a dark wooden table background.",wine_descriptive_194.png
+196,12,2,1,"A full-to-the-brim glass of red wine on a table, softly lit, photorealistic",wine_descriptive_195.png
+197,20,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, close-up shot with sharp focus and soft lighting",wine_descriptive_196.png
+198,32,2,3,"A full-to-the-brim glass of red wine on a small white marble table, the deep crimson liquid perfectly level with the rim, in a bright modern kitchen with soft natural lighting, photorealistic style",wine_descriptive_197.png
+199,17,3,1,"A full-to-the-brim glass of red wine on a simple table, softly lit in a quiet room, photorealistic",wine_descriptive_198.png
+200,20,3,2,"A full-to-the-brim glass of deep red wine on a small wooden table, in a softly lit cozy room, photorealistic style",wine_descriptive_199.png
+201,27,3,3,"A full-to-the-brim glass of red wine on a small wooden table, in a dimly lit cozy bar, photorealistic, deep crimson wine, clear smooth glass, warm soft lighting",wine_descriptive_200.png
+202,16,4,1,"A full-to-the-brim glass of red wine on a simple table, sharply focused, softly lit, photorealistic style",wine_descriptive_201.png
+203,34,4,2,"A full-to-the-brim glass of deep red wine on a small wooden table, captured in a highly detailed, softly lit photorealistic style, with rich reflections on the smooth glass and a subtle warm background blur",wine_descriptive_202.png
+204,24,4,3,"A full-to-the-brim glass of deep red wine on a small rustic wooden table, in a softly lit cozy room, photorealistic, high detail, natural shadows",wine_descriptive_203.png
+205,14,1,1,"A full-to-the-brim glass of red wine on a plain table, photorealistic lighting and detail",wine_descriptive_204.png
+206,20,1,2,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small white table, with a soft blurred background",wine_descriptive_205.png
+207,37,1,3,"A photorealistic close-up of a single, transparent crystal wine glass filled completely to the brim with deep red wine, tiny droplets clinging to the smooth glass surface, set on a reflective black tabletop under soft studio lighting.",wine_descriptive_206.png
+208,13,2,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic",wine_descriptive_207.png
+209,16,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, soft lighting, high detail",wine_descriptive_208.png
+210,24,2,3,"A full-to-the-brim glass of red wine on a small wooden table, with deep crimson liquid and clear reflective glass, in a bright photorealistic style",wine_descriptive_209.png
+211,24,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, tiny reflections on the smooth glass, soft blurred restaurant background",wine_descriptive_210.png
+212,16,3,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, softly lit, high detail",wine_descriptive_211.png
+213,22,3,3,"A full-to-the-brim glass of deep red wine on a small wooden table, in a bright cozy kitchen, photorealistic, high-resolution, soft natural lighting",wine_descriptive_212.png
+214,19,4,1,"A single full-to-the-brim glass of red wine on a simple table, softly lit in a quiet, elegant, photorealistic scene",wine_descriptive_213.png
+215,25,4,2,"A full-to-the-brim glass of deep red wine on a small wooden table, captured in a sharp, photorealistic style with soft natural lighting and subtle reflections",wine_descriptive_214.png
+216,24,4,3,"A full-to-the-brim glass of deep red wine on a small rustic wooden table, in a softly lit cozy room, photorealistic, high detail, realistic shadows",wine_descriptive_215.png
+217,16,1,1,"A full-to-the-brim glass of red wine on a plain table, photorealistic lighting and shadows, simple background",wine_descriptive_216.png
+218,38,1,2,"A photorealistic close-up of a single glass of red wine filled completely to the brim, deep ruby liquid touching the rim with no empty space, against a soft neutral background, studio lighting highlighting the glass and surface reflections",wine_descriptive_217.png
+219,38,1,3,"A photorealistic close-up of a single, full-to-the-brim glass of red wine on a small white table, with deep red liquid touching the rim, clear transparent glass, and a soft warm light source creating subtle reflections in the background",wine_descriptive_218.png
+220,13,2,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, photorealistic",wine_descriptive_219.png
+221,20,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, vivid lighting, deep crimson liquid, standard-sized clear glass",wine_descriptive_220.png
+222,25,2,3,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, vivid, with deep ruby liquid, clear transparent glass, and warm golden ambient lighting",wine_descriptive_221.png
+223,24,3,1,"Photorealistic close-up of a single glass of red wine filled completely to the brim, tiny reflections on the smooth glass, soft blurred restaurant background",wine_descriptive_222.png
+224,28,3,2,"A full-to-the-brim glass of deep red wine on a small wooden table in a dimly lit room, with soft natural light coming from a nearby window, photorealistic style",wine_descriptive_223.png
+225,19,3,3,"A full-to-the-brim glass of red wine on a small wooden table, in a bright cozy room, photorealistic, vivid, detailed",wine_descriptive_224.png
+226,16,4,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, highly detailed, photorealistic style",wine_descriptive_225.png
+227,37,4,2,"A full-to-the-brim glass of red wine on a small wooden table in a dimly lit, cozy bar, captured in a sharp, photorealistic style, with rich crimson liquid and clear reflective glass as the only strong color elements",wine_descriptive_226.png
+228,33,4,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, in a softly lit cozy room, with rich deep crimson liquid and clear reflective glass, photorealistic style, high detail, natural shadows",wine_descriptive_227.png
+229,18,1,1,"A full-to-the-brim glass of red wine on a plain white table, photorealistic, studio lighting, high resolution, sharp focus",wine_descriptive_228.png
+230,25,1,2,"A photorealistic close-up of a single, perfectly still, crystal-clear wine glass filled completely to the brim with deep red wine, against a soft neutral background.",wine_descriptive_229.png
+231,31,1,3,"A photorealistic close-up of a full-to-the-brim glass of red wine on a small white table, with deep red liquid, clear transparent glass, and a soft warm background, studio lighting, high resolution",wine_descriptive_230.png
+232,12,2,1,"A full-to-the-brim glass of red wine on a table, softly lit, photorealistic",wine_descriptive_231.png
+233,20,2,2,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, close-up shot with sharp focus and soft lighting",wine_descriptive_232.png
+234,25,2,3,"A full-to-the-brim glass of red wine on a small wooden table, photorealistic, deep ruby liquid with a glossy surface, clear thin-stemmed glass, soft warm lighting",wine_descriptive_233.png
+235,17,3,1,"A full-to-the-brim glass of red wine on a simple table, softly lit in a calm, photorealistic style",wine_descriptive_234.png
+236,20,3,2,"A full-to-the-brim glass of deep red wine on a small wooden table, in a softly lit cozy room, photorealistic style",wine_descriptive_235.png
+237,25,3,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, in a dim cozy bar with warm ambient lighting, photorealistic, high-resolution, detailed reflections",wine_descriptive_236.png
+238,16,4,1,"A full-to-the-brim glass of red wine on a simple table, softly lit, highly detailed, photorealistic style",wine_descriptive_237.png
+239,25,4,2,"A full-to-the-brim glass of deep red wine on a small wooden table, captured in a sharp, photorealistic style with soft natural lighting and subtle reflections",wine_descriptive_238.png
+240,36,4,3,"A full-to-the-brim glass of red wine on a small rustic wooden table, in a softly lit cozy room, with vivid deep crimson liquid and a clear reflective glass, captured in a sharp, highly detailed photorealistic style",wine_descriptive_239.png
