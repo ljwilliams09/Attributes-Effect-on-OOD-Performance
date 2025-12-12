@@ -1,13 +1,13 @@
 a rubik cube with a missing corner
 
-normal_cube_1.png:
-normal_cube_2.png:
-normal_cube_3.png:
-normal_cube_4.png:
-normal_cube_5.png:
+normal_cube_1.png: 0.047427594661712646
+normal_cube_2.png: 0.0007107257843017578
+normal_cube_3.png: 0.999445915222168 # has a missing edge
+normal_cube_4.png: 0.00012511014938354492
+normal_cube_5.png: 1.0132789611816406e-06
 
-missing_1.png
-missing_2.png
-missing_3.png
-missing_4.png
-missing_5.png
+missing_1.png: 0.9999538064002991
+missing_2.png: 0.99992436170578
+missing_3.png: 0.9997379779815674
+missing_4.png: 0.9997935891151428
+missing_5.png: 0.999876081943512
