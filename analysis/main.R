@@ -8,7 +8,7 @@ library(MASS)
 library(corrplot)
 
 # ---- Read dataset ----
-df <- read.csv("./stratification/prompts/deodorant_prompts.csv", stringsAsFactors = FALSE)
+df <- read.csv("./stratification/prompts/wine_descriptive_prompts.csv", stringsAsFactors = FALSE)
 
 
 # ---- Clean + preprocess ----
@@ -21,8 +21,8 @@ df$ambiguity <- as.factor(df$ambiguity)
 numeric_vars <- c(
   "word_count",
   "descriptor_words",
-  "sentence_count",
-  "num_visual_attributes"
+  "sentence_count"
+  # "num_visual_attributes"
 )
 
 df[numeric_vars] <- scale(df[numeric_vars])
@@ -41,14 +41,21 @@ lm_model <- lm(
   vqascore ~ 
     word_count +
     descriptor_words +
-    sentence_count +
-    num_visual_attributes +
-    spatial_constraints +
-    ambiguity,
+    num_visual_attributes, 
+    # spatial_constraints +
+    # ambiguity,
   data = df
 )
-
 summary(lm_model)
+
+ggplot(df, aes(x = num_visual_attributes, y = vqascore)) +
+  geom_point(alpha = 0.6) +
+  labs(
+    x = "Number of Visual Attributes",
+    y = "VQA Score",
+    title = "VQA Score vs. Number of Visual Attributes"
+  ) +
+  theme_minimal()
 
 # ---- Multicollinearity test ----
 vif(lm_model)
