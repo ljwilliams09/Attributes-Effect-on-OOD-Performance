@@ -1,0 +1,15 @@
+* Not enough data collected
+
+Coefficients:
+                        Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            0.9632260  0.0179869  53.551   <2e-16 ***
+word_count             0.0009463  0.0005972   1.585    0.120    
+descriptor_words      -0.0013099  0.0018956  -0.691    0.493    
+num_visual_attributes  0.0028089  0.0029386   0.956    0.344    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.01467 on 44 degrees of freedom
+Multiple R-squared:  0.1308,    Adjusted R-squared:  0.07157 
+F-statistic: 2.208 on 3 and 44 DF,  p-value: 0.1006
+

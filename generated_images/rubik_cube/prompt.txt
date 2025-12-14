@@ -1,0 +1,11 @@
+base_prompt = "a rubik cube with just the corner missing, not an edge"
+system_prompt = "You are a research assistant that is creating prompts for us to test on out of-distribution image generation. You will be given a list of prompt attributes, and a target object for the image generator to create. Return one image prompt that follows the attribute guidelines to elicit the photo from the image generator. Return only the final image prompt with no explanation or extra text. Your main focus should getting a corner to be missing on the rubik cube, not anything else." \
+    "Here are descriptions of what each variable means: " \
+    "descriptor_words_count: adjectives + adverbs count" \
+    "num_visual_attributes: color words + size words" \
+    "style: photorealistic" 
+
+    id = 0
+    descriptor_words = 4
+    visual_attributes = 3
+    combinations = []
