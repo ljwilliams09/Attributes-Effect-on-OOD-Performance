@@ -3,13 +3,13 @@ from dotenv import load_dotenv
 load_dotenv()
 import os
 
-def prompt_generation(prompt, guidelines, system_prompt):
+def prompt_generation(prompt, guidelines, system_prompt, api_key):
     # Guidelines
     des_words = guidelines[2]
     vis_att = guidelines[3]
 
-    key= os.getenv("PERSONAL_API_KEY") # .env file with api keys for openai model generation
-    client = OpenAI(api_key=key)
+    # key= os.getenv("PERSONAL_API_KEY") # .env file with api keys for openai model generation
+    client = OpenAI(api_key=api_key)
     prompt = f"Prompt Guidelines:" \
     f"descriptor_words_count: {des_words}" \
     f"num_visual_attributes: {vis_att}" \

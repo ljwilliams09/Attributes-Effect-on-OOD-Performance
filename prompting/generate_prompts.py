@@ -3,13 +3,17 @@ import csv
 import prompting.gpt as gpt
 import argparse
 
+def read_file(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return f.read().strip()
+
 def main(args):
-    base_prompt = args.base_prompt
-    system_prompt = args.system_prompt
+    base_prompt = read_file(args.base_prompt)
+    system_prompt = read_file(args.system_prompt)
     id = 0
     combinations = []
     headers = ["prompt_id", "word_count", "descriptor_words", "num_visual_attributes", "prompt"]
-    for i in range(15):
+    for i in range(args.iterations):
         for des_words in range(1,args.descriptor_words + 1):
             for visual in range(1, args.visual_attributes + 1):
                 id += 1
@@ -19,7 +23,7 @@ def main(args):
         writer = csv.writer(f)
         writer.writerow(headers)
         for row in combinations:
-            prompt = gpt.prompt_generation(base_prompt, row, system_prompt)
+            prompt = gpt.prompt_generation(base_prompt, row, system_prompt, args.api_key)
             assert prompt is not None
             row[1] = len(prompt.split())
             writer.writerow(row + [prompt])
@@ -46,6 +50,13 @@ if __name__ == "__main__":
         type=str,
         default="system_prompt.txt",
         help="Path to txt file containing the base prompt for prompt generation"
+    )
+    
+    parser.add_argument(
+        "--iterrations",
+        type=int,
+        default=1,
+        help="Amount of iterrations to stratify a prompt one for one combination of variables"
     )
 
     parser.add_argument(
