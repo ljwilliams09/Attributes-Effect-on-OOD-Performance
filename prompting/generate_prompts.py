@@ -1,26 +1,24 @@
 import csv
-import gpt_prompter
+import prompting.gpt as gpt
 import argparse
 
-def prompting(system, base):
-    base_prompt = "a glass of red wine that is filled completely to the brim"
-    system_prompt = 
+def main(args):
+    base_prompt = args.base_prompt
+    system_prompt = args.system_prompt
     id = 0
-    descriptor_words = 4
-    visual_attributes = 3
     combinations = []
     headers = ["prompt_id", "word_count", "descriptor_words", "num_visual_attributes", "prompt"]
     for i in range(15):
-        for des_words in range(1,descriptor_words + 1):
-            for visual in range(1, visual_attributes + 1):
+        for des_words in range(1,args.descriptor_words + 1):
+            for visual in range(1, args.visual_attributes + 1):
                 id += 1
                 combinations.append([id, None, des_words, visual])
     
-    with open("./wine_prompts.csv", 'w') as f:
+    with open(f"./{args.prompt_file}", 'w') as f:
         writer = csv.writer(f)
         writer.writerow(headers)
         for row in combinations:
-            prompt = gpt_prompter.prompt_generation(base_prompt,row,system_prompt)
+            prompt = gpt.prompt_generation(base_prompt, row, system_prompt)
             assert prompt is not None
             row[1] = len(prompt.split())
             writer.writerow(row + [prompt])
@@ -29,6 +27,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Batch image generation from CSV prompts using OpenAI"
     )
+    parser.add_argument(
+        "--prompt_file",
+        type=str,
+        help="Path to the csv file containing prompts and variable information"
+    )
+
     parser.add_argument(
         "--system_prompt",
         type=str,
@@ -45,9 +49,18 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--descriptor_words",
-        type=str,
-        require=True,
-        help="Amount of descriptor words to stratify on for a given prompt")
+        type=int,
+        default=4,
+        help="Amount of descriptor words to stratify on for a given prompt"
+    )
 
+    parser.add_argument(
+        "--visual_attributes",
+        type=int,
+        default=3,
+        help="Amount of visual attribute words to stratify on for a given prompt"
+    )
 
-    main()
+    args = parser.parse_args()
+    main(args)
+    
