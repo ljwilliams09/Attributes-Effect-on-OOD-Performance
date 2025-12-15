@@ -27,7 +27,7 @@ def main(args):
     load_dotenv()        
 
     # initialize OpenAI client                  
-    client = OpenAI()   
+    client = OpenAI(api_key=args.api_key)   
 
     # create output directory if missing
     os.makedirs(args.output_dir, exist_ok=True) 
@@ -99,6 +99,12 @@ if __name__ == "__main__":
         type=str,
         default="1024x1024",
         help="Generated image resolution"
+    )
+    parser.add_argument(
+        "--api_key",
+        type=str,
+        required=True,
+        help="API key for OpenAI API"
     )
     parser.add_argument(
         "--prefix",

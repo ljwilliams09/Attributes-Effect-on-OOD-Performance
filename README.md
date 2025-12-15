@@ -24,32 +24,33 @@ In the following instructions, we use the wine prompt as an example to illustrat
 
 2. **Ground truth testing with VQAScore**
 
-After we have established a task is OOD, we want to ensure that the VQAScore method is able to reliably distinguish between images that successful accomplish the task, and images that fail at the task.
+   After we have established a task is OOD, we want to ensure that the VQAScore method is able to reliably distinguish between images that successful accomplish the task, and images that fail at the task.\
 
-For this, we use the VQAScore in the `t2v_metrics` folder. `t2v_metrics` is a submodule of another repository and specific directions can be found in the README.md [here](https://github.com/linzhiqiu/t2v_metrics). The simple directions for setup are as follows:
+   For this, we use the VQAScore in the `t2v_metrics` folder. `t2v_metrics` is a submodule of another repository and specific directions can be found in the README.md [here](https://github.com/linzhiqiu/t2v_metrics). The simple directions for setup are as follows: \
 
-```python
-  git clone https://github.com/linzhiqiu/t2v_metrics
-  cd t2v_metrics
+   ```python
+     git clone https://github.com/linzhiqiu/t2v_metrics
+     cd t2v_metrics
 
-  conda create -n t2v python=3.10 -y
-  conda activate t2v
-  conda install pip -y
+     conda create -n t2v python=3.10 -y
+     conda activate t2v
+     conda install pip -y
 
-  conda install ffmpeg -c conda-forge
-  pip install -e . # local pip install
-```
+     conda install ffmpeg -c conda-forge
+     pip install -e . # local pip install
+   ```
 
-To set up the `t2v_metrics` submodule, we used the Colgate Supercomputer to be able to load and use open weight models and the VQAScore in general. Required libaries for the repo are located in `./t2v_metrics/pyproject.toml`. We want to note that although we ended up using OpenAI's gpt-4o model for the VQAScore, the requirements for this folder still require extensive computational resources, and it should not be anticipated to be run locally without reconcilation of conflicting requirements. Instructions to use other models other than gpt-4o are in the original repo as well.
+   To set up the `t2v_metrics` submodule, we used the Colgate Supercomputer to be able to load and use open weight models and the VQAScore in general. Required libaries for the repo are located in `./t2v_metrics/pyproject.toml`. We want to note that although we ended up using OpenAI's gpt-4o model for the VQAScore, the requirements for this folder still require extensive computational resources, and it should not be anticipated to be run locally without reconcilation of conflicting requirements. Instructions to use other models other than gpt-4o are in the original repo as well.
 
-Once the VQAScore repo is set up, we took 5 images that aligned with the OOD task we were trying to elicit, and 5 images that did not align. To ensure that the VQA method would work for a given task, we want to see that it can discern between the true and false images. For example, we would want to see a picture of a truly full wine glass get scored near a 1.0 while a normal glass of wine was scored much lower. See examples in any of the `ground_truths` folders for reference. The VQAScore can be run with the folllowing command after images and base prompts are set up:
+   Once the VQAScore repo is set up, we took 5 images that aligned with the OOD task we were trying to elicit, and 5 images that did not align. To ensure that the VQA method would work for a given task, we want to see that it can discern between the true and false images. For example, we would want to see a picture of a truly full wine glass get scored near a 1.0 while a normal glass of wine was scored much lower. See examples in any of the `ground_truths` folders for reference. The VQAScore can be run with the folllowing command after images and base prompts are set up:
 
-```python
-  ground_truth.py \
-    --api_key YOUR_OPENAI_API_KEY
-```
+   ```python
+     ground_truth.py \
+       --api_key YOUR_OPENAI_API_KEY
+   ```
 
 3. **Prompt stratification**
+
    Run `./prompting/generate_prompts.py` in the prompting folder to generate the task_prompts.csv file. This file contains prompts with systematically varied combinations of prompt attributes.
 
    Use `./prompting/base_prompt.txt` and `./prompting/system_prompt.txt` to store the base and system prompt for the prompt generation. Examples can be found in a `prompts.txt` file within a task folder in the `./generated_images` directory.
@@ -72,49 +73,50 @@ Once the VQAScore repo is set up, we took 5 images that aligned with the OOD tas
       --visual_attributes 3
    ```
 
-4. Image generation
+4. **Image generation**
+
    Run `image_generators/ImageGeneration.py` with the stratified prompt CSV specified via the command line to generate images for each prompt. The generated images are automatically saved to the designated output directory (e.g., generated_images/, with wine-specific outputs stored under generated_images/wine/). This step may require sufficient billing allowance to complete successfully.
 
-```python
-./image_generators/ImageGeneration.py \
---csv-file ./prompting/prompts/wine_prompts.csv \
---output-dir generated_images/wine \
---prefix wine
-```
+   ```python
+   ./image_generators/ImageGeneration.py \
+   --csv-file ./prompting/prompts/wine_prompts.csv \
+   --output-dir generated_images/wine \
+   --prefix wine
+   ```
 
-5. Obtain VQA Score
+5. **Obtain VQA score**
 
-Similar to the use of VQA with ground_truths, the VQAScore will be obtained from the `t2v_metrics` submodule. This time, we will upload the generated images to a specified folder on the JupyterHub IDE along with the generated prompt csv. We will use the `vqa.py` script to parse the csv, evaluate a given image, and update the csv with the score from that image belonging to the corresponding prompt.
-Inputs: - `--input_file`: str type, prompt file containing variables and filename information - `--image_dir`: str type, directory path to folder with images for evaluation - `--base_prompt`: str type, base prompt to evaluate images against - `--api_key`: str type, api_key for OpenAI API
+   Similar to the use of VQA with ground_truths, the VQAScore will be obtained from the `t2v_metrics` submodule. This time, we will upload the generated images to a specified folder on the JupyterHub IDE along with the generated prompt csv. We will use the `vqa.py` script to parse the csv, evaluate a given image, and update the csv with the score from that image belonging to the corresponding prompt.
+   Inputs: - `--input_file`: str type, prompt file containing variables and filename information - `--image_dir`: str type, directory path to folder with images for evaluation - `--base_prompt`: str type, base prompt to evaluate images against - `--api_key`: str type, api_key for OpenAI API
 
-Example:
+   Example:
 
-```zsh
-  ./t2v_metrics/vqa.py \
-    --input_file wine_prompts.csv \
-    --image_dir ./images/wine/ \
-    --base_prompt "a wine glass completely full to the brim with wine" \
-    --api_key YOUR_OPENAI_API_KEY
-```
+   ```zsh
+     ./t2v_metrics/vqa.py \
+       --input_file wine_prompts.csv \
+       --image_dir ./images/wine/ \
+       --base_prompt "a wine glass completely full to the brim with wine" \
+       --api_key YOUR_OPENAI_API_KEY
+   ```
 
-6. Statistical Analysis
+6. **Statistical Analysis**
 
-After VQAScore's have been added to the CSV, we used the `main.R` script to regress variables onto the resulting VQAScore. This can be done in VSCode with the right extentions or RStudio. It takes the path to the csv as an input and outputs a regression table like this:
+   After VQAScore's have been added to the CSV, we used the `main.R` script to regress variables onto the resulting VQAScore. This can be done in VSCode with the right extentions or RStudio. It takes the path to the csv as an input and outputs a regression table like this:
 
-```R
-Coefficients:
-                       Estimate Std. Error t value Pr(>|t|)
-(Intercept)            0.142319   0.073082   1.947  0.05267 .
-word_count             0.015470   0.003307   4.677 4.89e-06 ***
-descriptor_words      -0.051464   0.015961  -3.224  0.00144 **
-num_visual_attributes -0.125707   0.029516  -4.259 2.97e-05 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+   ```R
+   Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)
+   (Intercept)            0.142319   0.073082   1.947  0.05267 .
+   word_count             0.015470   0.003307   4.677 4.89e-06 ***
+   descriptor_words      -0.051464   0.015961  -3.224  0.00144 **
+   num_visual_attributes -0.125707   0.029516  -4.259 2.97e-05 ***
+   ---
+   Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Residual standard error: 0.2761 on 236 degrees of freedom
-Multiple R-squared:  0.1231,    Adjusted R-squared:  0.1119
-F-statistic: 11.04 on 3 and 236 DF,  p-value: 8.249e-07
-```
+   Residual standard error: 0.2761 on 236 degrees of freedom
+   Multiple R-squared:  0.1231,    Adjusted R-squared:  0.1119
+   F-statistic: 11.04 on 3 and 236 DF,  p-value: 8.249e-07
+   ```
 
 ## Future Directions
 
@@ -132,14 +134,14 @@ Luca
 
 - VQAScore adaptation + testing: 8 hrs
 - Prompt stratification methods: 6 hrs
-- Poster background/intro/further directions/results: 4 hrs
+- Poster background/intro/further directions/results: 2 hrs
 
 Both
 
-- Prompt idea brainstorm
-- Literature review
-- First milestone proposal draft
-- Final artfact readme writeup
+- Prompt idea brainstorm: 1 hr
+- Literature review: 2-3 hrs each
+- First milestone proposal draft: included in work for membership inference and VQAScore
+- Final artfact readme writeup: 2-3 hrs each
 
 ## Repository Guide
 
