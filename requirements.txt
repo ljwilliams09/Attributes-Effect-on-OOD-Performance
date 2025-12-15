@@ -15,6 +15,13 @@ matplotlib>=3.6
 tqdm>=4.64
 ftfy>=6.1
 sentencepiece>=0.1.99
+diffusers>=0.25
+accelerate>=0.25
+lpips>=0.1.4
+huggingface-hub>=0.20
+safetensors>=0.4
+openai>=1.0.0
+python-dotenv>=1.0.0
 
 # Local editable install of the submodule
 -e ./t2v_metrics

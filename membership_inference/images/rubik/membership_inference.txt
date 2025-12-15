@@ -1,0 +1,6 @@
+missing_1.jpg: 0.7091568112
+missing_2.jpg: 0.6978071928
+missing_3.jpg: 0.6791576147
+missing_4.jpg: 0.7133632898
+missing_5.jpg: 0
+Average Score: 
