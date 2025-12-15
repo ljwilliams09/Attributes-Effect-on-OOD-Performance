@@ -1,6 +1,6 @@
 # Attributes-Effect-on-OOD-Performance
 
-Matthew Liu and Luca Williams
+[Matthew Liu](https://github.com/Matt-Liu0) and [Luca Williams](https://github.com/ljwilliams09)
 
 ## Overview
 
