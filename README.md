@@ -170,8 +170,8 @@ Both
   - Contains `generate_prompts.py` which is the main script for stratifying on prompts.
   - `base_prompt.txt` and `system_prompt.txt` are both txt files containing the system prompt and base prompt for the prompt generation, examples can be found in the generated images folder under a `prompt.txt` file for a given task.
 
-- `./t2v_metrics`
-  - submodule folder of the repository for the VQAScore
+- `./VQAScore`
+  - contains scripts for VQAScore and submodule folder of the repository for the VQAScore (`./t2v_metrics`)
 
 ## References
 
