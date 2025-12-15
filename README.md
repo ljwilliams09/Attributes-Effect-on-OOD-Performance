@@ -24,30 +24,101 @@ In the following instructions, we use the wine prompt as an example to illustrat
 
 2. **Ground truth testing with VQAScore**
 
-   After we have established a task is OOD, we want to ensure that the VQAScore method is able to reliably distinguish between images that successful accomplish the task, and images that fail at the task.
+After we have established a task is OOD, we want to ensure that the VQAScore method is able to reliably distinguish between images that successful accomplish the task, and images that fail at the task.
 
-   For this, we use the VQAScore in the `t2v_metrics` folder. `t2v_metrics` is a submodule of another repository and specific directions can be found [here]().
+For this, we use the VQAScore in the `t2v_metrics` folder. `t2v_metrics` is a submodule of another repository and specific directions can be found in the README.md [here](https://github.com/linzhiqiu/t2v_metrics). The simple directions for setup are as follows:
+
+```python
+  git clone https://github.com/linzhiqiu/t2v_metrics
+  cd t2v_metrics
+
+  conda create -n t2v python=3.10 -y
+  conda activate t2v
+  conda install pip -y
+
+  conda install ffmpeg -c conda-forge
+  pip install -e . # local pip install
+```
+
+To set up the `t2v_metrics` submodule, we used the Colgate Supercomputer to be able to load and use open weight models and the VQAScore in general. Required libaries for the repo are located in `./t2v_metrics/pyproject.toml`. We want to note that although we ended up using OpenAI's gpt-4o model for the VQAScore, the requirements for this folder still require extensive computational resources, and it should not be anticipated to be run locally without reconcilation of conflicting requirements. Instructions to use other models other than gpt-4o are in the original repo as well.
+
+Once the VQAScore repo is set up, we took 5 images that aligned with the OOD task we were trying to elicit, and 5 images that did not align. To ensure that the VQA method would work for a given task, we want to see that it can discern between the true and false images. For example, we would want to see a picture of a truly full wine glass get scored near a 1.0 while a normal glass of wine was scored much lower. See examples in any of the `ground_truths` folders for reference. The VQAScore can be run with the folllowing command after images and base prompts are set up:
+
+```python
+  ground_truth.py \
+    --api_key YOUR_OPENAI_API_KEY
+```
 
 3. **Prompt stratification**
-   Run "prompting/prompt_stratification.py" in the prompting folder to generate the wine_prompts.csv file. This file contains prompts with systematically varied combinations of prompt attributes.
+   Run `./prompting/generate_prompts.py` in the prompting folder to generate the task_prompts.csv file. This file contains prompts with systematically varied combinations of prompt attributes.
 
-4. Image generation
-   Run image_generators/ImageGeneration.py with the stratified prompt CSV specified via the command line to generate images for each prompt. The generated images are automatically saved to the designated output directory (e.g., generated_images/, with wine-specific outputs stored under generated_images/wine/). This step may require sufficient billing allowance to complete successfully.
+   Use `./prompting/base_prompt.txt` and `./prompting/system_prompt.txt` to store the base and system prompt for the prompt generation. Examples can be found in a `prompts.txt` file within a task folder in the `./generated_images` directory.
+
+   Inputs for `generate_prompts.py` include the following:
+
+   - `--prompt_file`: str type, file path for the resulting csv
+   - `--system_prompt`: str type, file path for the system_prompt.txt file
+   - `--base_prompt`: str type, file path for the base_prompt.txt file
+   - `--descriptor_words`: int type, number of max descriptor words to stratify a prompt across
+   - `--visual_attributes`: int type, number of max visual attribute words to stratify a prompt across
+
+   Example script call:
 
    ```python
-   ./image_generators/ImageGeneration.py \
-   --csv-file ./prompting/prompts/wine_prompts.csv \
-   --output-dir generated_images/wine \
-   --prefix wine
+    generate_prompts.py \
+      --api_key YOUR_OPENAI_API_KEY \
+      --prompt_file wine_prompts.csv \
+      --descriptor_words 4 \
+      --visual_attributes 3
    ```
+
+4. Image generation
+   Run `image_generators/ImageGeneration.py` with the stratified prompt CSV specified via the command line to generate images for each prompt. The generated images are automatically saved to the designated output directory (e.g., generated_images/, with wine-specific outputs stored under generated_images/wine/). This step may require sufficient billing allowance to complete successfully.
+
+```python
+./image_generators/ImageGeneration.py \
+--csv-file ./prompting/prompts/wine_prompts.csv \
+--output-dir generated_images/wine \
+--prefix wine
+```
 
 5. Obtain VQA Score
 
+Similar to the use of VQA with ground_truths, the VQAScore will be obtained from the `t2v_metrics` submodule. This time, we will upload the generated images to a specified folder on the JupyterHub IDE along with the generated prompt csv. We will use the `vqa.py` script to parse the csv, evaluate a given image, and update the csv with the score from that image belonging to the corresponding prompt.
+Inputs: - `--input_file`: str type, prompt file containing variables and filename information - `--image_dir`: str type, directory path to folder with images for evaluation - `--base_prompt`: str type, base prompt to evaluate images against - `--api_key`: str type, api_key for OpenAI API
+
+Example:
+
+```zsh
+  ./t2v_metrics/vqa.py \
+    --input_file wine_prompts.csv \
+    --image_dir ./images/wine/ \
+    --base_prompt "a wine glass completely full to the brim with wine" \
+    --api_key YOUR_OPENAI_API_KEY
+```
+
 6. Statistical Analysis
+
+After VQAScore's have been added to the CSV, we used the `main.R` script to regress variables onto the resulting VQAScore. This can be done in VSCode with the right extentions or RStudio. It takes the path to the csv as an input and outputs a regression table like this:
+
+```R
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)
+(Intercept)            0.142319   0.073082   1.947  0.05267 .
+word_count             0.015470   0.003307   4.677 4.89e-06 ***
+descriptor_words      -0.051464   0.015961  -3.224  0.00144 **
+num_visual_attributes -0.125707   0.029516  -4.259 2.97e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.2761 on 236 degrees of freedom
+Multiple R-squared:  0.1231,    Adjusted R-squared:  0.1119
+F-statistic: 11.04 on 3 and 236 DF,  p-value: 8.249e-07
+```
 
 ## Future Directions
 
-An important direction for future work is to address the mismatch between the target model used for membership inference and the model used for image generation during prompting. Identifying or developing a unified model that supports both text-to-image and image-to-image pipelines would enable more consistent evaluation and reduce uncertainty introduced by cross-model assumptions. Future work should also expand the scale of the pipeline by increasing the number of prompts and generated images, which is currently limited by computational resources. Greater scale would allow for stronger statistical confidence, clearer correlations between specific prompt attributes and model performance, and more reliable comparisons across different types of OOD tasks. With sufficient expansion, this framework could also be used to compare how different VQA-based evaluation models behave across tasks, offering deeper insight into how evaluation methodology itself influences performance assessment under unfamiliar conditions.
+An important direction for future work is to address the mismatch between the target model used for membership inference and the model used for image generation during prompting. Identifying or developing a unified model that supports both text-to-image and image-to-image pipelines would enable more consistent evaluation and reduce uncertainty introduced by cross-model assumptions. Future work should also expand the scale of the pipeline by increasing the number of prompts and generated images, which is currently limited by computational and fiscal resources. Greater scale would allow for stronger statistical confidence, clearer correlations between specific prompt attributes and model performance, and more reliable comparisons across different types of OOD tasks. Testing VQAScore on tasks with a wider variety of models would also benefit the pipeline by allowing us to find the strongest way to measure each task as the measures tends to struggle on some (rubik cub with missing corner) as compared to others (wine completely full). With sufficient expansion, this framework could also be used to compare how different VQA-based evaluation models behave across tasks, offering deeper insight into how evaluation methodology itself influences performance assessment under unfamiliar conditions.
 
 ## Contributions
 

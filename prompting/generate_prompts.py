@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import csv
 import prompting.gpt as gpt
 import argparse
@@ -36,14 +37,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--system_prompt",
         type=str,
-        required=True,
+        default="system_prompt.txt",
         help="Path to txt file containing the system prompt for prompt generation"
     )
 
     parser.add_argument(
         "--base_prompt",
         type=str,
-        required=True,
+        default="system_prompt.txt",
         help="Path to txt file containing the base prompt for prompt generation"
     )
 
@@ -59,6 +60,13 @@ if __name__ == "__main__":
         type=int,
         default=3,
         help="Amount of visual attribute words to stratify on for a given prompt"
+    )
+    
+    parser.add_argument(
+        "--api_key",
+        required=True,
+        type=str,
+        help="API key for the OpenAI api"
     )
 
     args = parser.parse_args()

@@ -8,7 +8,7 @@ def prompt_generation(prompt, guidelines, system_prompt):
     des_words = guidelines[2]
     vis_att = guidelines[3]
 
-    key= os.getenv("PERSONAL_API_KEY")
+    key= os.getenv("PERSONAL_API_KEY") # .env file with api keys for openai model generation
     client = OpenAI(api_key=key)
     prompt = f"Prompt Guidelines:" \
     f"descriptor_words_count: {des_words}" \
