@@ -45,7 +45,7 @@ In the following instructions, we use the wine prompt as an example to illustrat
    Once the VQAScore repo is set up, we took 5 images that aligned with the OOD task we were trying to elicit, and 5 images that did not align. To ensure that the VQA method would work for a given task, we want to see that it can discern between the true and false images. For example, we would want to see a picture of a truly full wine glass get scored near a 1.0 while a normal glass of wine was scored much lower. See examples in any of the `ground_truths` folders for reference. The VQAScore can be run with the folllowing command after images and base prompts are set up:
 
    ```python
-     ground_truth.py \
+     python ground_truth.py \
        --api_key YOUR_OPENAI_API_KEY
    ```
 
@@ -65,8 +65,8 @@ In the following instructions, we use the wine prompt as an example to illustrat
 
    Example script call:
 
-   ```python
-    generate_prompts.py \
+   ```zsh
+    python generate_prompts.py \
       --api_key YOUR_OPENAI_API_KEY \
       --prompt_file wine_prompts.csv \
       --descriptor_words 4 \
@@ -77,8 +77,8 @@ In the following instructions, we use the wine prompt as an example to illustrat
 
    Run `image_generators/ImageGeneration.py` with the stratified prompt CSV specified via the command line to generate images for each prompt. The generated images are automatically saved to the designated output directory (e.g., generated_images/, with wine-specific outputs stored under generated_images/wine/). This step may require sufficient billing allowance to complete successfully.
 
-   ```python
-   ./image_generators/ImageGeneration.py \
+   ```zsh
+   python ImageGeneration.py \
    --csv-file ./prompting/prompts/wine_prompts.csv \
    --output-dir generated_images/wine \
    --prefix wine
@@ -92,7 +92,7 @@ In the following instructions, we use the wine prompt as an example to illustrat
    Example:
 
    ```zsh
-     ./t2v_metrics/vqa.py \
+     python vqa.py \
        --input_file wine_prompts.csv \
        --image_dir ./images/wine/ \
        --base_prompt "a wine glass completely full to the brim with wine" \

@@ -77,13 +77,13 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--csv-file",
+        "--csv_file",
         type=str,
         required=True,
         help="Path to CSV file containing prompts"
     )
     parser.add_argument(
-        "--output-dir",
+        "--output_dir",
         type=str,
         default="generated_images",
         help="Directory to save generated images"
