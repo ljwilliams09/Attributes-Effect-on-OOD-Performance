@@ -13,6 +13,14 @@ import os
 from dotenv import load_dotenv
 import base64
 import argparse
+import pandas as pd
+
+def linker(input_file, prefix):
+    df = pd.read_csv(input_file)
+
+    df['filename'] = [f"{prefix}_{i}.png" for i in range(len(df))]
+
+    df.to_csv(input_file, index=False)
 
 def main(args):
     # load OPENAI_API_KEY from environment
@@ -55,11 +63,13 @@ def main(args):
                 with open(image_path, "wb") as f:
                     f.write(image_bytes)        # save image to disk
 
+
                 print(f"[{i}] Saved: {image_path} | Prompt: {prompt[:50]}...")
 
             except Exception as e:
                 print(f"Error generating image for '{prompt}': {e}")  # handle API or IO errors
 
+        linker(args.csv_file, args.prefix) # update the image path in the csv
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

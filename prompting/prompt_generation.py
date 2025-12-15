@@ -1,14 +1,10 @@
 import csv
 import gpt_prompter
+import argparse
 
-def main():
+def prompting(system, base):
     base_prompt = "a glass of red wine that is filled completely to the brim"
-    system_prompt = "You are a research assistant that is creating prompts for us to test on out of-distribution image generation. You will be given a list of prompt attributes, and a target object for the image generator to create. Return one image prompt that follows the attribute guidelines to elicit the photo from the image generator. Return only the final image prompt with no explanation or extra text. Your main focus should getting a corner to be missing on the rubik cube, not anything else." \
-    "Here are descriptions of what each variable means: " \
-    "descriptor_words_count: adjectives + adverbs count" \
-    "num_visual_attributes: color words + size words" \
-    "style: photorealistic" 
-
+    system_prompt = 
     id = 0
     descriptor_words = 4
     visual_attributes = 3
@@ -30,4 +26,28 @@ def main():
             writer.writerow(row + [prompt])
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Batch image generation from CSV prompts using OpenAI"
+    )
+    parser.add_argument(
+        "--system_prompt",
+        type=str,
+        required=True,
+        help="Path to txt file containing the system prompt for prompt generation"
+    )
+
+    parser.add_argument(
+        "--base_prompt",
+        type=str,
+        required=True,
+        help="Path to txt file containing the base prompt for prompt generation"
+    )
+
+    parser.add_argument(
+        "--descriptor_words",
+        type=str,
+        require=True,
+        help="Amount of descriptor words to stratify on for a given prompt")
+
+
     main()
