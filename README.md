@@ -26,10 +26,12 @@ Run "prompting/prompt_stratification.py" in the prompting folder to generate the
 3. Image generation
 Run image_generators/ImageGeneration.py with the stratified prompt CSV specified via the command line to generate images for each prompt. The generated images are automatically saved to the designated output directory (e.g., generated_images/, with wine-specific outputs stored under generated_images/wine/). This step may require sufficient billing allowance to complete successfully.
 
+```python
 ./image_generators/ImageGeneration.py \
   --csv-file ./prompting/prompts/wine_prompts.csv \
   --output-dir generated_images/wine \
   --prefix wine
+```
 
 4. Obtain VQA Score
 
