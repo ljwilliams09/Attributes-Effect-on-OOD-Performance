@@ -1,5 +1,8 @@
-
-
-
-# Local editable install of the submodule
--e ./t2v_metrics
+diffusers==0.36.0
+lpips==0.1.4
+openai==2.12.0
+pandas==2.3.3
+Pillow==12.0.0
+python-dotenv==1.2.1
+torch==2.7.1
+torchvision==0.24.0

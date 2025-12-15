@@ -26,7 +26,7 @@ In the following instructions, we use the wine prompt as an example to illustrat
 
    After we have established a task is OOD, we want to ensure that the VQAScore method is able to reliably distinguish between images that successful accomplish the task, and images that fail at the task.\
 
-   For this, we use the VQAScore in the `t2v_metrics` folder. `t2v_metrics` is a submodule of another repository and specific directions can be found in the README.md [here](https://github.com/linzhiqiu/t2v_metrics). The simple directions for setup are as follows: \
+   For this, we use the VQAScore in the `t2v_metrics` folder. `t2v_metrics` is a submodule of another repository and specific directions can be found in the README.md [here](https://github.com/linzhiqiu/t2v_metrics). Make sure to cd into `VQAScore` to run it. The simple directions for setup are as follows: \
 
    ```python
      git clone https://github.com/linzhiqiu/t2v_metrics
