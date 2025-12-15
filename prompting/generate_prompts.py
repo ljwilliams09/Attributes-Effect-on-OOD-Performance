@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import csv
-import prompting.gpt as gpt
+import gpt
 import argparse
 
 def read_file(path):
@@ -53,7 +53,7 @@ if __name__ == "__main__":
     )
     
     parser.add_argument(
-        "--iterrations",
+        "--iterations",
         type=int,
         default=1,
         help="Amount of iterrations to stratify a prompt one for one combination of variables"

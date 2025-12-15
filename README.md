@@ -62,7 +62,7 @@ In the following instructions, we use the wine prompt as an example to illustrat
    - `--base_prompt`: str type, file path for the base_prompt.txt file
    - `--descriptor_words`: int type, number of max descriptor words to stratify a prompt across
    - `--visual_attributes`: int type, number of max visual attribute words to stratify a prompt across
-   - `iterations`: int type, amount of itterations to stratify a prompt for on a single set of combinations
+   - `--iterations`: int type, amount of itterations to stratify a prompt for on a single set of combinations
 
    Example script call:
 
