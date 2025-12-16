@@ -13,20 +13,20 @@ def main(args):
     id = 0
     combinations = []
     headers = ["prompt_id", "word_count", "descriptor_words", "num_visual_attributes", "prompt"]
-    for i in range(args.iterations):
-        for des_words in range(1,args.descriptor_words + 1):
-            for visual in range(1, args.visual_attributes + 1):
-                id += 1
-                combinations.append([id, None, des_words, visual])
+    for i in range(args.iterations): # stratify on iterations
+        for des_words in range(1,args.descriptor_words + 1): # stratify on number of descriptor words
+            for visual in range(1, args.visual_attributes + 1): # stratify on number of visual attributes
+                id += 1     # update id
+                combinations.append([id, None, des_words, visual]) # add the variables to a list
     
     with open(f"./{args.prompt_file}", 'w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f) 
         writer.writerow(headers)
         for row in combinations:
-            prompt = gpt.prompt_generation(base_prompt, row, system_prompt, args.api_key)
+            prompt = gpt.prompt_generation(base_prompt, row, system_prompt, args.api_key) # generate a prompt for the variables in row
             assert prompt is not None
-            row[1] = len(prompt.split())
-            writer.writerow(row + [prompt])
+            row[1] = len(prompt.split()) # word count
+            writer.writerow(row + [prompt]) # write the row to the csv, add the prompt onto the end
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

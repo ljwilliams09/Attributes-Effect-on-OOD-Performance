@@ -15,7 +15,7 @@ def prompt_generation(prompt, guidelines, system_prompt, api_key):
     f"num_visual_attributes: {vis_att}" \
     f"style: photorealistic"
 
-    response = client.responses.create(
+    response = client.responses.create( # standard OpenAI API call with system and user prompt
         model="gpt-5.1",
         input=[
             {
