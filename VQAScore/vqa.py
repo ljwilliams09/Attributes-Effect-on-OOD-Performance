@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import pandas as pd
 import csv
-import VQAScore.VQAScore as VQAScore
+import VQAScore
 import argparse
 import os
+import VQAScore
 
 # Get VQAScore
 def main(args):
@@ -16,7 +17,7 @@ def main(args):
 
     # Add VQAScore to the csv
     df = pd.read_csv(args.input_file)
-    df["vqascore"] = VQAScore.vqa_score(filenames, args.api_key, args.base_prompt)
+    df["vqascore"] = VQAScore.vqa_score(filenames, args.api_key, args.base_prompt) # type: ignore
     df.to_csv(args.input_file, index=False)
 
 if __name__ == "__main__":
@@ -54,4 +55,3 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
     main(args)
-

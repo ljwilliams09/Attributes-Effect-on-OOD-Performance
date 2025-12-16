@@ -15,7 +15,7 @@ def main(args):
                 "./generated_images/wine/ground_truths/half_0005.png"]
 
     base_prompt = "a glass of red wine that is filled completely to the brim"
-    print(f"Scores: {VQAScore.vqa_score(image_paths, args.api_key, base_prompt)}")
+    print(f"Scores: {VQAScore.vqa_score(image_paths, args.api_key, base_prompt)}") # prints the scores from all images baesd on the base_prompt
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

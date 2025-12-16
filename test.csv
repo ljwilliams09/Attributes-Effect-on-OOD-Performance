@@ -1,0 +1,7 @@
+prompt_id,word_count,descriptor_words,sentence_count,num_visual_attributes,spatial_constraints,ambiguity,prompt,filename,vqascore
+1,15,1,1,1,none,clear,A photorealistic close-up of a single glass of red wine filled completely to the brim.,wine_0.png,0.9947774410247803
+2,22,1,1,1,none,partially ambiguous,"A photorealistic close-up of a single glass of red wine filled completely to the brim, with smooth reflections on the liquid surface.",wine_1.png,0.9706786274909973
+3,19,1,1,1,none,fully ambiguous,A photorealistic close-up of a single glass of red wine filled completely to the brim on a plain background.,wine_2.png,0.6224499940872192
+4,24,1,1,1,top,clear,A photorealistic close-up top-down view of a single clear glass completely filled to the brim with deep red liquid on a plain neutral surface.,wine_3.png,0.9706838726997375
+5,24,1,1,1,top,partially ambiguous,A photorealistic close-up top-down view of a single clear glass completely filled to the brim with deep red liquid on a plain neutral surface.,wine_4.png,0.9045716524124146
+6,23,1,1,1,top,fully ambiguous,A photorealistic close-up top-down view of a single clear glass of red wine filled completely to the brim on a plain white surface.,wine_5.png,0.9241321086883545
